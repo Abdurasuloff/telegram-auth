@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login with telegram Website</h1>
+    <a href="{% url 'login' %}">login</a> |
+    <a href="{% url 'logout' %}">logout</a> <br><br>
+    {% if request.user.is_authenticated %}
+    <h6>User is logged in!</h6>
+    {% if user.profile_pic %}
+        {% if backends.associated %}
+        <img width="150" height="150"  src="{{user.profile_pic}}" alt="user profile picture">
+        {% else %}
+        <img width="150" height="150"  src="{{user.profile_pic.url}}" alt="user profile picture">
+        
+    {% endif %}
+    {% endif %}
+    {% endif %}
+</body>
+</html>
